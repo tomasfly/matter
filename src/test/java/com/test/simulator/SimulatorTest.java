@@ -9,14 +9,24 @@ import java.util.*;
 public class SimulatorTest {
 
     List<String> objects = new ArrayList<>();
-    List<String> transitionCodes = new ArrayList<>();
+    List<String> tc = new ArrayList<>();
 
     @Test
     public void testSimulator() {
-        objects.add("G");
-        transitionCodes.add("Co");
+        // objects.add("G");
+        // tc.add("Co");
+        // This Test data should be read from an external file, most probably.
+
+        
+        objects.add("L");
+        objects.add("L");
+        objects.add("L");
+        objects.add("L");
+        tc.add("Di");
+        // tc.add("Co");
+        // tc.add("Co");
         Simulator simulator = new Simulator();
-        simulator.ExecuteRule(objects, transitionCodes);
-        assertTrue("Asserting true", true);
+        assertTrue("Input not valid",simulator.validations(tc, objects));        
+        System.out.print(simulator.ExecuteRule(objects, tc));        
     }
 }
