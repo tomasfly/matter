@@ -13,20 +13,18 @@ public class SimulatorTest {
 
     @Test
     public void testSimulator() {
-        // objects.add("G");
-        // tc.add("Co");
-        // This Test data should be read from an external file, most probably.
-
-        
-        objects.add("L");
-        objects.add("L");
-        objects.add("L");
-        objects.add("L");
-        tc.add("Di");
-        // tc.add("Co");
-        // tc.add("Co");
+        objects.add("G");
+        objects.add("G");
+        objects.add("S");
+        objects.add("X");
+        tc.add("Ht");
+        tc.add("Ht");
         Simulator simulator = new Simulator();
-        assertTrue("Input not valid",simulator.validations(tc, objects));        
-        System.out.print(simulator.ExecuteRule(objects, tc));        
+        assertTrue("Input not valid", simulator.validations(tc, objects));
+        try {
+            System.out.print(simulator.ExecuteRule(objects, tc));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

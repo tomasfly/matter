@@ -8,8 +8,8 @@ public class Simulator implements ValidationsInterface {
     TransitionCode tc;
     Rule rule;
 
-    String[] transitionCodes = { "Ht", "Pr", "Di", "Co" };
-    String[] statesOfMatter = { "G", "S", "L", "P", "X" };
+    private final String[] transitionCodes = { "Ht", "Pr", "Di", "Co" };
+    private final String[] statesOfMatter = { "G", "S", "L", "P", "X" };
 
     public void StateOfMatterFactory(String stateOfMatter) {
         som = new StateOfMatter(stateOfMatter) {
@@ -20,52 +20,47 @@ public class Simulator implements ValidationsInterface {
         tc = new TransitionCode(transitionCode);
     }
 
-    public String ExecuteRule(List<String> objects, List<String> transitionCodes) {
-        rule = new Rule();
+    public String ExecuteRule(List<String> objects, List<String> transitionCodes) throws Exception {
+        rule = new Rule(objects);
         return rule.ImplementRule(objects, transitionCodes);
     }
 
     public Boolean validations(List<String> tc, List<String> objects) {
-        
+
         Boolean tcValidations = this.ValidateTansitionCodes(tc);
-        Boolean sofValidations = this.ValidateStateOfMatter(objects);        
+        Boolean sofValidations = this.ValidateStateOfMatter(objects);
         System.out.print(tcValidations.toString() + sofValidations.toString());
         return tcValidations && sofValidations;
     }
 
     @Override
     public Boolean ValidateTansitionCodes(List<String> tc) {
-        if(tc.size()==0){
+        if (tc.size() == 0) {
             return true;
         }
-        Boolean isCodePresent = false;
+        Boolean codeFound = false;
         for (String code : tc) {
+            codeFound = false;
             for (int i = 0; i < transitionCodes.length; i++) {
                 if (code.equals(transitionCodes[i])) {
-                    isCodePresent = true;
-                    break;
-                } else {
-                    isCodePresent = false;
+                    codeFound = true;
                 }
-
             }
         }
-        return isCodePresent;
+        return codeFound;
     }
 
     @Override
     public Boolean ValidateStateOfMatter(List<String> objects) {
-        Boolean isPresent = false;
+        Boolean returnValue = false;
         for (String code : objects) {
+            returnValue = false;
             for (int i = 0; i < statesOfMatter.length; i++) {
                 if (code.equals(statesOfMatter[i])) {
-                    isPresent = true;
-                    break;
-                } else {
-                    isPresent = false;
+                    returnValue = true;
                 }
             }
         }
-        return isPresent;
+        return returnValue;
     }
 }
