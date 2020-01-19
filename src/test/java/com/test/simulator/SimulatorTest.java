@@ -14,15 +14,11 @@ public class SimulatorTest {
     @Test
     public void testSimulator() {
         objects.add("G");
-        objects.add("G");
-        objects.add("S");
-        objects.add("X");
-        tc.add("Ht");
-        tc.add("Ht");
+        tc.add("Co");        
         Simulator simulator = new Simulator();
         assertTrue("Input not valid", simulator.validations(tc, objects));
         try {
-            System.out.print(simulator.ExecuteRule(objects, tc));
+            System.out.print(simulator.ExecuteRule(objects, tc)+"\n");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,8 +28,7 @@ public class Simulator implements ValidationsInterface {
     public Boolean validations(List<String> tc, List<String> objects) {
 
         Boolean tcValidations = this.ValidateTansitionCodes(tc);
-        Boolean sofValidations = this.ValidateStateOfMatter(objects);
-        System.out.print(tcValidations.toString() + sofValidations.toString());
+        Boolean sofValidations = this.ValidateStateOfMatter(objects);        
         return tcValidations && sofValidations;
     }
 
