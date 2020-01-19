@@ -32,6 +32,6 @@ mvn clean install
 
 Actual result:
 
-2. 
+2 . 
 In the console you will see the totals for each state of matter. For example:
 G:0,S:1,L:0,P:0,X:0   
