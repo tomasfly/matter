@@ -1,6 +1,6 @@
 Steps to use simulator:
 
-1. Go to src/test/java/com/test/simulator/SimulatorTest.java and update the values you want to test in the testSimulator() method. For example:
+1 . Go to src/test/java/com/test/simulator/SimulatorTest.java and update the values you want to test in the testSimulator() method. For example:
 
         objects.add("G");
         tc.add("Co");
@@ -26,8 +26,12 @@ You can add multiple objects and transition codes. For example:
         objects.add("G");
         tc.add("Co");
         tc.add("Ht");
-2. Execute:
+2 . Execute:
+
 mvn clean install
+
 Actual result:
+
+2. 
 In the console you will see the totals for each state of matter. For example:
 G:0,S:1,L:0,P:0,X:0   
